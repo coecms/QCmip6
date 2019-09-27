@@ -1,0 +1,13 @@
+name: qcmip6-dev
+
+channels:
+    - conda-forge
+    - defaults
+
+dependencies:
+    - pbr
+    - numpy
+    - cdo
+    - netcdf4
+    - libnetcdf
+    - xarray
