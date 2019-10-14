@@ -1,0 +1,41 @@
+package:
+    name: qcmip6
+    version: {{ GIT_DESCRIBE_TAG }}
+
+build:
+    number: {{ GIT_DESCRIBE_NUMBER }}
+    string: {{ GIT_BUILD_STR }}
+
+source:
+    git_url: ../
+
+build:
+    script: python setup.py install
+
+requirements:
+    build:
+        - python
+        - pbr
+    run:
+        - python
+        - six
+        - numpy
+        - cdo
+        - netcdf4
+        - libnetcdf
+        - xarray
+
+test:
+    source_files:
+        - setup.cfg
+        - test
+    requires:
+        - pytest
+    commands:
+        - py.test -s
+
+about:
+    home: https://github.com/coecms/QCmip6
+    license: Apache 2.0
+    license_file: LICENSE-2.0.txt
+    summary: Tool to compress directories of netCDF files
